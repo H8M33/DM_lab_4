@@ -1,0 +1,1640 @@
+Yakupov Azat
+ Data
+ Mining
+Lecturer: Якупов Азат Шавкатович
+
+https://ru.linkedin.com/in/ayakupov
+https://datalaboratory.one
+DataLab
+Introduction
+Yakupov Azat 2 DataLab
+Structure of the Web
+Yakupov Azat 3
+Strongly
+Connected
+Component
+(SCC)
+In
+Component
+Out
+Component
+Tubes
+Tendrils
+Out
+Tendrils
+In
+Disconnected
+Components DataLab
+Structure of the Web
+Yakupov Azat 4
+The in-component, consisting of pages that could
+reach the SCC by following links, but were not
+reachable from the SCC
+The out-component, consisting of pages reachable
+from the SCC but unable to reach the SCC
+Tendrils. Some tendrils consist of pages reachable
+from the in-component but not able to reach the incomponent. The other tendrils can reach the outcomponent, but are not reachable from the outcomponent
+DataLab
+Structure of the Web
+Yakupov Azat 5
+Tubes, which are pages reachable from the incomponent and able to reach the out-component,
+but unable to reach the SCC or be reached from
+the SCC
+Isolated components that are unreachable from
+the large components and unable to reach those
+components
+DataLab
+Page Rank Algorithm
+Yakupov Azat 6
+The term PageRank comes from Larry Page
+Idea of “Random Surfers”
+Technique of “taxation” of random surfers
+DataLab
+Early Search Engines
+Yakupov Azat 7
+inverted index
+terms
+terms
+terms
+terms
+terms
+terms
+DataLab
+Early Search Engines
+Yakupov Azat 8
+inverted index
+page_id term
+www.mail.ru mail
+www.mail.ru news
+www.mail.ru currencies
+https://datalaboratory.one data structures
+https://datalaboratory.one data mining
+… …
+https://thedatalab.com data structures
+DataLab
+Early Search Engines
+Yakupov Azat 9
+inverted index
+term document
+mail 1
+news 1
+currencies 1
+data structures 2 10
+data mining 2
+… …
+… …
+DataLab
+Early Search Engines
+Yakupov Azat 10
+inverted index
+DataLab
+Early Search Engines
+Yakupov Azat 11
+inverted index
+Stop Words List
+DataLab
+Early Search Engines
+Yakupov Azat 12
+How to “hack” to make a SEO
+DataLab
+Early Search Engines
+Yakupov Azat 13 DataLab
+Early Search Engines
+Yakupov Azat 14
+time scale
+unique visits
+Movie
+Game of
+Thrones
+The
+Witcher
+Term SPAM
+DataLab
+Google innovations
+Yakupov Azat 15
+Web pages would have a large number of surfers
+were considered more “important” then pages that
+would rarely be visited
+The content of a page was judged not only by the
+terms, but by in/out the links to that page
+DataLab
+Google innovations
+Yakupov Azat 16
+How to “hack” to make a SEO
+DataLab
+Google innovations
+Yakupov Azat 17
+time scale
+unique visits
+Link In #1
+SPAM farm
+Link In #2
+Link In N
+Site #1
+Site #2
+Site #3
+Site #4 Site #5
+Site #6
+Site #7
+DataLab
+Motivations
+Yakupov Azat 18
+Users of the Web “vote with their feet”. They share
+links to pages they think are good or useful
+The behaviour of a random surfer indicates which
+pages users are likely to visit
+DataLab
+Definition of PageRank
+Yakupov Azat 19
+PageRank is the function which assigns a real
+number to each page in the Web
+f
+PR
+f
+PR
+Site #1
+Site #2
+Site #3
+Site N
+…
+Web Page
+Site #1 0.001
+Site #2 0.00045
+Site #3 0.0000045
+… …
+Site N 0.00000000…9
+f
+PR
+DataLab
+PageRank Sample
+Yakupov Azat 20
+A B
+C D
+M =
+0 1/2 1 0
+1/3 0 0 1/2
+1/3 0 0 1/2
+1/3 1/2 0 0
+A B C D
+1/3 1/3
+1/3
+1/2
+1 1/2 1/2
+1/2
+transition matrix
+D
+A
+B
+C
+DataLab
+PageRank Sample
+Yakupov Azat 21
+A B
+C D
+M =
+0 1/2 1 0
+1/3 0 0 1/2
+1/3 0 0 1/2
+1/3 1/2 0 0
+A B C D
+1/3 1/3
+1/3
+1/2
+1 1/2 1/2
+1/2
+transition matrix
+D
+A
+B
+C
+v0 =
+1/4
+1/4
+1/4
+1/4 D
+A
+B
+C
+DataLab
+PageRank
+Yakupov Azat 22
+A B
+C D
+1/3 1/3
+1/3
+1/2
+1 1/2 1/2
+1/2
+M ⋅ v0 v0
+1st surf
+2nd surf
+M ⋅ (M ⋅ v0) = M2 ⋅ v0
+…
+n-th surf
+M ⋅ (Mn−1 ⋅ v0) = Mn ⋅ v0
+What is a mathematical process behind of
+DataLab
+PageRank Sample
+Yakupov Azat 23
+Russian mathematician Andrey Markov
+“
+”
+Markov process is a process for which
+one can make predictions for its future
+based solely on its present state just
+as well as one could knowing the
+process's full history. In other words,
+conditional on the present state of the
+system, its future and past states are
+independent.
+Wikipedia
+DataLab
+Main conditions
+Yakupov Azat 24
+The graph is strongly
+connected; that is, it’s possible
+to get from any node to any other
+node
+There are no dead ends.
+nodes that have no link out
+A B
+C D
+Does our graph satisfy both conditions
+DataLab
+PageRank
+Yakupov Azat 25
+A B
+C D
+M =
+0 1/2 1 0
+1/3 0 0 1/2
+1/3 0 0 1/2
+1/3 1/2 0 0
+A B C D
+1/3 1/3
+1/3
+1/2
+1 1/2 1/2
+1/2
+transition matrix
+D
+A
+B
+C
+∑ = 1 ∑ = 1 ∑ = 1 ∑ = 1
+M- stochastic matrix
+v = λMv
+v - principal eigenvector
+λ - eigenvalue
+DataLab
+Let’s surf
+Yakupov Azat 26
+A B
+C D
+1/3 1/3
+1/3
+1/2
+1 1/2 1/2
+1/2
+vi =
+1/4
+1/4
+1/4
+1/4
+9/24
+5/24
+5/24
+5/24
+15/48
+11/48
+11/48
+11/48
+, , ,
+11/32
+7/32
+7/32
+7/32
+,…,
+3/9
+2/9
+2/9
+2/9
+DataLab
+Let’s surf
+Yakupov Azat 27
+A B
+C D
+1/3 1/3
+1/3
+1/2
+1 1/2 1/2
+1/2
+3/9
+2/9
+2/9
+2/9
+What does particular number mean for Search Engine
+D
+A
+B
+C
+∑ = 1
+DataLab
+Dead Ends
+Yakupov Azat 28
+Dead-ends occur when pages have no out-links.
+(~ dangling link)
+DataLab
+Dead Ends
+Yakupov Azat 29
+A B
+C D
+1/3 1/3
+1/3
+1/2
+1/2 1/2
+1/2
+M =
+0 1/2 0 0
+1/3 0 0 1/2
+1/3 0 0 1/2
+1/3 1/2 0 0
+A B C D
+D
+A
+B
+C
+∑ ≠ 1
+M- substochastic matrix
+∑ = 1 ∑ = 1 ∑ = 1
+DataLab
+Dead Ends
+Yakupov Azat 30
+A B
+C D
+1/3 1/3
+1/3
+1/2
+1/2 1/2
+1/2
+vi =
+1/4
+1/4
+1/4
+1/4
+3/24
+5/24
+5/24
+5/24
+5/48
+7/48
+7/48
+7/48
+, , ,
+21/288
+31/288
+31/288
+31/288
+,…,
+0
+0
+0
+0
+DataLab
+Dead Ends
+Yakupov Azat 31
+Drop the dead ends from the graph and also drop
+their incoming links
+A B
+D
+1/3
+1/3
+1/2
+1/2 1/2
+DataLab
+Dead Ends
+Yakupov Azat 32
+“Taxation” method
+A B
+D
+1/3
+1/3
+1/2
+1/2 1/2
+C
+1/3
+1/2
+DataLab
+Dead Ends
+Yakupov Azat 33
+A B
+C D
+E
+A B
+C D
+A B
+D
+M = [
+0 1/2 0
+1/2 0 1
+1/2 1/2 0] vi = [
+1/3
+1/3
+1/3]
+1/6
+3/6
+2/6
+, ,
+3/12
+5/12
+4/12
+,…,
+2/9
+4/9
+3/9
+DataLab
+Dead Ends
+Yakupov Azat 34
+A B
+C D
+A B
+D
+2/9
+4/9
+3/9
+f
+PR(C) = ?
+A
+B
+D
+f
+PR(C) =
+2
+9
+×
+1
+3
++
+3
+9
+×
+1
+2
+=
+13
+54
+DataLab
+Dead Ends
+Yakupov Azat 35
+A B
+C D
+f
+PR(E) = ?
+A B
+C D
+E
+Just compute it
+2/9
+4/9
+13/54
+3/9
+A
+B
+D
+C
+DataLab
+Dead Ends
+Yakupov Azat 36
+A B
+C D
+E
+2/9
+4/9
+13/54
+3/9
+13/54
+A
+B
+D
+C
+E
+DataLab
+Spider Trap
+Yakupov Azat 37
+If there are no links from within a group of pages to
+outside of the group, then the group is considered a
+spider trap.
+Spider Trap
+DataLab
+Spider Trap
+Yakupov Azat 38
+A B
+C D
+M =
+0 1/2 0 0
+1/3 0 0 1/2
+1/3 0 1 1/2
+1/3 1/2 0 0
+A B C D
+D
+A
+B
+C
+DataLab
+Spider Trap
+Yakupov Azat 39
+A B
+C D
+vi =
+1/4
+1/4
+1/4
+1/4
+3/24
+5/24
+11/24
+5/24
+5/48
+7/48
+29/48
+7/48
+, , ,
+21/288
+31/288
+205/288
+31/288
+,…,
+0
+0
+1
+0
+DataLab
+Spider Trap
+Yakupov Azat 40
+A B
+C D
+0
+0
+1
+0
+How we can avoid it
+DataLab
+PageRank Teleporting
+Yakupov Azat 41
+A B
+C D
+v′
+= βMv + (1 − β)
+n
+e
+β ∈ [0,1]
+β = 0.85
+e is a vector of all 1’s
+n is a number of nodes
+M is a transition matrix
+v is a PR vector of iteration
+DataLab
+Spider Trap
+Yakupov Azat 42
+A B
+C D
+β = 0.8
+v′
+=
+0 2/5 0 0
+4/15 0 0 2/5
+4/15 0 4/5 2/5
+4/15 2/5 0 0
+⋅ v+
+1/20
+1/20
+1/20
+1/20
+v′
+= βMv + (1 − β)
+n
+e
+DataLab
+Spider Trap
+Yakupov Azat 43
+A B
+C D
+vi =
+1/4
+1/4
+1/4
+1/4
+9/60
+13/60
+25/60
+13/60
+41/300
+53/300
+153/300
+53/300
+, , ,
+543/4500
+707/4500
+2543/4500
+707/4500
+,…,
+15/148
+19/148
+95/148
+19/148 D
+A
+B
+C
+f
+PR(C) > 50 % - the reason is in a spider trap
+DataLab
+PageRank Algorithm
+Yakupov Azat 44
+f
+PR(A) = (1 − d) + d ⋅ ( f
+PR(T1)
+C(T1)
++ . . . + f
+PR(Tn)
+C(Tn)
+)
+A
+…
+T1
+T2
+Tn
+T3
+d ∈ [0,1] is a dumping factor
+d ≈ 0.85
+C(Ti
+) is a number of links going out of Ti
+DataLab
+PageRank Sample
+Yakupov Azat 45
+A B
+C(A) = 1
+C(B) = 1
+d = 0.85
+f
+PR(A) = ?
+f
+PR(B) = ?
+f
+PR(A) = (1 − d) + d ⋅ ( f
+PR(T1)
+C(T1)
++ . . . + f
+PR(Tn)
+C(Tn)
+)
+DataLab
+PageRank Sample
+Yakupov Azat 46
+PageRank can be
+calculated using a simple
+iterative algorithm …
+Google article
+A B
+“
+”
+f
+PR(A) = ?
+f
+PR(B) = ?
+DataLab
+PageRank Sample
+Yakupov Azat 47
+A B
+C(A) = 1
+C(B) = 1
+d = 0.85
+f
+PR(B) = 1
+f
+PR(A) = 0.15 + 0.85 * 1 = 1
+f
+PR(B) = 0.15 + 0.85 * 1 = 1
+f
+PR(A) = (1 − d) + d ⋅ ( f
+PR(T1)
+C(T1)
++ . . . + f
+PR(Tn)
+C(Tn)
+)
+DataLab
+PageRank Sample
+Yakupov Azat 48
+A B
+C(A) = 1
+C(B) = 1
+d = 0.85
+f
+PR(B) = 0
+f
+PR(A) = (1 − d) + d ⋅ ( f
+PR(T1)
+C(T1)
++ . . . + f
+PR(Tn)
+C(Tn)
+)
+DataLab
+PageRank Sample
+Yakupov Azat 49
+f
+PR(B) = 0
+f
+PR(A) = 0.15 + 0.85 *
+0
+1
+= 0.15
+f
+PR(B) = 0.15 + 0.85 *
+0.15
+1
+= 0.2775
+f
+PR(A) = 0.15 + 0.85 *
+0.2775
+1
+= 0.385875
+f
+PR(B) = 0.15 + 0.85 *
+0.385875
+1
+= 0.47799375
+I
+II
+DataLab
+PageRank Sample
+Yakupov Azat 50
+f
+PR(A) = 0.15 + 0.85 *
+0.47799375
+1
+= 0.5562946875
+f
+PR(B) = 0.15 + 0.85 *
+0.5562946875
+1
+= 0.622850484375
+III
+IV …
+∑n
+i=1 f
+PR(Ti
+)
+n
+= 1
+f
+PR(A) =
+f
+PR(B) =
+Principle:
+DataLab
+PageRank Matrix Sample
+Yakupov Azat 51
+A B
+v′
+= βMv + (1 − β)
+n
+e
+β ∈ [0,1]
+β = 0.85
+e is a vector of all 1’s
+n is a number of nodes
+M is a transition matrix
+v is a PR vector of iteration
+DataLab
+PageRank Matrix Sample
+Yakupov Azat 52
+A B
+v′
+= βMv + (1 − β)
+n
+e
+M = [
+0 1
+1 0]
+β = 0.85
+n = 2
+e = [
+1
+1]
+v = [
+1/2
+1/2]
+A B
+DataLab
+PageRank Matrix Sample
+Yakupov Azat 53
+A B
+v′
+= βMv + (1 − β)
+n
+e = [
+1/2
+1/2]
+n
+∑
+i=1
+v′ Principle: i = 1
+DataLab
+PageRank Matrix Sample
+Yakupov Azat 54
+A B
+C D
+1/3 1/3
+1/3
+1/2
+1 1/2 1/2
+1/2
+v′
+= βMv + (1 − β)
+n
+e
+vi =
+9/24
+5/24
+5/24
+5/24
+,
+15/48
+11/48
+11/48
+11/48
+, . . . ,
+3/9
+2/9
+2/9
+2/9
+v′
+= βMv + (1 − β)
+n
+e Mn ⋅ v = 0
+Why are equals
+DataLab
+Topic-Sensitive Page Rank
+Yakupov Azat 55
+A
+B
+C
+1/3
+1/3
+1/3
+A
+B
+C
+1/6
+2/3
+1/6
+DataLab
+Topic-Sensitive Page Rank
+Yakupov Azat 56
+I am “googling” - jaguar
+DataLab
+Topic-Sensitive Page Rank
+Yakupov Azat 57
+I am “googling” - jaguar
+DataLab
+private Page Rank
+Yakupov Azat 58
+x1
+x2
+. . .
+xn
+y1
+y2
+. . .
+yn
+z1
+z2
+. . .
+zn
+…
+Ideally, each user would have a
+private PageRank vector that
+gives the importance of each page
+to that user
+Is it a good idea
+private PageRank private PageRank private PageRank
+DataLab
+Topic-Sensitive Page Rank
+Yakupov Azat 59
+…
+topics
+x1
+x2
+. . .
+xn
+Topic
+Sensitive
+PageRank
+y1
+y2
+. . .
+yn z1
+z2
+. . .
+z w n 1
+w2 . . .
+wn h1
+h2 . . .
+hn
+p1
+p2
+. . .
+pn
+o1
+o2
+. . .
+on
+https://dmoz-odp.org
+DataLab
+Biased Random Walks
+Yakupov Azat 60
+A B
+C D
+1/3 1/3
+1/3
+1/2
+1 1/2 1/2
+1/2
+B, D → sport topic
+v′
+= βMv + (1 − β)
+|S|
+eS
+S = {B, D}
+|S| = 2
+eS =
+0
+1
+0
+1 D
+A
+B
+C
+DataLab
+Biased Random Walks
+Yakupov Azat 61
+A B
+C D
+1/3 1/3
+1/3
+1/2
+1 1/2 1/2
+1/2
+β ⋅ M =
+0 2/5 4/5 0
+4/15 0 0 2/5
+4/15 0 0 2/5
+4/15 2/5 0 0
+(1 − β)
+|S|
+eS =
+0
+1/10
+0
+1/10
+DataLab
+Biased Random Walks
+Yakupov Azat 62
+A B
+C D
+1/3 1/3
+1/3
+1/2
+1 1/2 1/2
+1/2
+v′
+=
+0 2/5 4/5 0
+4/15 0 0 2/5
+4/15 0 0 2/5
+4/15 2/5 0 0
+v +
+0
+1/10
+0
+1/10
+0/2
+1/2
+0/2
+1/2
+2/10
+3/10
+2/10
+3/10
+42/150
+41/150
+26/150
+41/150
+, , ,…,
+D
+A
+B
+C
+54/210
+59/210
+38/210
+59/210
+DataLab
+Biased Random Walks
+Yakupov Azat 63
+A B
+C D
+1/3 1/3
+1/3
+1/2
+1 1/2 1/2
+1/2
+A B
+C D
+1/3 1/3
+1/3
+1 1/2 1/2
+1/2
+1/2
+54/210
+59/210
+38/210
+59/210
+3/9
+2/9
+2/9
+2/9 D
+A
+B
+C
+D
+A
+B
+C 59/210 > 2/9
+DataLab
+How to use
+Yakupov Azat 64
+Decide on the topics for which we shall create specialized PageRank vectors.
+Pick a teleport set for each of these topics, and use that set to compute the
+topic-sensitive PageRank vector for that topic.
+Find a way of determining the topic or set of topics that are most relevant for a
+particular search query.
+Use the PageRank vectors for that topic or topics in the ordering of the
+responses to the search query.
+DataLab
+How to use
+Yakupov Azat 65
+Find a way of determining the topic or set of topics that are most relevant for a
+particular search query.
+Allow the user to select a topic from a menu.
+Mine the topic(s) by information about the user, e.g., their bookmarks
+or their stated interests on Facebook.
+Mine the topic(s) by the words that appear in the Web pages recently
+searched by the user, or recent queries issued by the user.
+DataLab
+Mining Topics
+Yakupov Azat 66
+basketball
+football
+airsoft
+baseball
+shopping
+boxing
+bowling
+darts
+sports
+clothing
+gifts
+jewelry flowers
+food
+books
+autos
+pets
+health
+sport
+beauty
+medical tourism
+dentistry
+pharmacy
+shopping
+health
+DataLab
+Mining Topics
+Yakupov Azat 67
+S1 = {word1,word2, . . . ,wordk}
+S2 = {word1,word2, . . . ,wordk}
+S3 = {word1,word2, . . . ,wordk
+P = } {word1,word2, . . . ,wordk}
+DataLab
+Mining Topics
+Yakupov Azat 68
+S1 = {word1,word2, . . . ,wordk}
+S2 = {word1,word2, . . . ,wordk}
+S3 = {word1,word2, . . . ,wordk
+P = } {word1,word2, . . . ,wordk}
+J(P, S1)
+J(P, S2)
+J(P, S3)
+J(P, S) =
+|P ∩ S|
+|P ∪ S|
+K(P, S1)
+K(P, S2)
+K(P, S3)
+K(P, S) =
+|P ∩ S|
+2
+|P| ⋅ |S|
+DataLab
+Spam Farm
+Yakupov Azat 69
+time scale
+unique visits
+Link In #1
+SPAM farm
+Link In #2
+Link In N
+Site #1
+Site #2
+Site #3
+Site #4 Site #5
+Site #6
+Site #7
+DataLab
+Architecture of a Spam Farm
+Yakupov Azat 70
+Spam farm - of pages whose purpose is to increase the PageRank
+of a certain page or pages
+Inaccessible pages: the pages that the spammer cannot affect.
+Most of the Web is in this part.
+From the point of view of the Spammer the Web is divided into 3 areas
+Accessible pages: those pages that, while they are not controlled
+by the spammer, can be affected by the spammer.
+Own pages: the pages that the spammer owns and controls.
+DataLab
+Architecture of a Spam Farm
+Yakupov Azat 71
+Inaccessible
+ Pages
+Accessible
+ Pages
+Own
+ Pages
+Target
+Page
+DataLab
+Architecture of a Spam Farm
+Yakupov Azat 72
+Accessible
+ Pages Example a links from accessible pages
+DataLab
+Architecture of a Spam Farm
+Yakupov Azat 73
+Accessible
+ Pages
+DataLab
+Analysis of a Spam Farm
+Yakupov Azat 74
+Let’s (taxation parameter of dumping factor)
+ - total pages in the Web
+ - supporting pages from Spam Farm
+ - is the sum of the PageRanks, over all accessible pages with a link to Target Page
+ - the unknown PageRank of Target Page
+β = 0.85
+n
+m
+x
+y
+f
+PR(mi
+) = β ⋅ y
+m
++ (1 − β)
+n
+PR for each supporting page
+DataLab
+Analysis of a Spam Farm
+Yakupov Azat 75
+β ⋅ (β ⋅ y
+m
++ (1 − β)
+n
+)
+Page Rank y of Target Page comes from 3 sources
+Contribution x from outside, as we have assumed.
+β times the PageRank of every supporting page; that is
+, the share of the fraction 1 − β of the PageRank that
+belongs to Target Page.
+(1 − β)/n
+(1 − β)/n → 0
+(1)
+(2)
+(3)
+DataLab
+Analysis of a Spam Farm
+Yakupov Azat 76
+y = x + βm(
+βy
+m
++ (1 − β)
+n
+) + 0 = x + β2y + β(1 − β)
+m
+n
+y = (1) + (2) + (3)
+y =
+x
+1 − β2 + c
+m
+n
+, where c = β(1 − β)/(1 − β2
+) = β/(1 + β)
+DataLab
+Analysis of a Spam Farm
+Yakupov Azat 77
+y =
+x
+1 − β2 + c
+m
+n
+, where c = β(1 − β)/(1 − β2
+) = β/(1 + β)
+β = 0.85
+1
+1 − β2
+= 3.6 β
+1 + β
+= 0.46
+360 % 46 %
+from x from m/n
+DataLab
+The Empire Strikes Back
+Yakupov Azat 78
+TrustRank, a variation of topic-sensitive PageRank designed to
+lower the score of spam pages
+Spam mass, a calculation that identifies the pages that are likely to
+be spam and allows the search engine to eliminate those pages or
+to lower their PageRank strongly
+DataLab
+TrustRank
+Yakupov Azat 79
+TrustRank is topic-sensitive PageRank, where the “topic” is a set of pages believed
+to be trustworthy (not spam)
+Site #1
+Site #2
+Site #3
+to check sites
+with highest
+by human
+f
+PR
+Site N
+…
+to check sites
+with highest
+by automatically
+based on highest
+knowledge
+f
+PR
+DataLab
+TrustRank
+Yakupov Azat 80
+TrustRank is topic-sensitive PageRank, where the “topic” is a set of pages believed
+to be trustworthy (not spam)
+Site #1
+Site #2
+Site #3
+to check sites
+with highest
+by human
+f
+PR
+Site N
+…
+to check sites
+with highest
+by automatically
+based on highest
+knowledge
+f
+PR
+.edu
+.gov
+.mil
+.one
+DataLab
+TrustRank
+Yakupov Azat 81
+TrustRank is topic-sensitive PageRank, where the “topic” is a set of pages believed
+to be trustworthy (not spam)
+Site A Site B Site C Site D
+My lovely
+site
+100%
+Trust Rank
+50%
+Trust Rank
+25%
+Trust Rank
+12.5%
+Trust Rank
+DataLab
+TrustRank
+Yakupov Azat 82
+TrustRank is topic-sensitive PageRank, where the “topic” is a set of pages believed
+to be trustworthy (not spam)
+100%
+Trust Rank
+DataLab
+Spam Mass
+Yakupov Azat 83
+Spam mass, a calculation that identifies the pages that are likely to be spam and
+allows the search engine to eliminate those pages or to lower their PageRank
+strongly
+Let’s page p has f and then PR(p) = r f
+TR(p) = t f
+spam(p) =
+r − t
+r
+A B
+C D
+Node
+A
+B
+C
+D
+3
+9
+2
+9
+2
+9
+2
+9
+54
+210
+59
+210
+59
+210
+38
+210
+f
+PR f
+TR f
+spam
+≈ 0.229
+≈ − 0.264
+≈ − 0.264
+≈ 0.186
+S = {B, D} - trusted pages
+DataLab
+Spam Mass
+Yakupov Azat 84
+Spam mass, a calculation that identifies the pages that are likely to be spam and
+allows the search engine to eliminate those pages or to lower their PageRank
+strongly
+A B
+C D
+Node
+A
+B
+C
+D
+f
+spam
+≈ 0.229 ∈ [0,1]
+≈ − 0.264 < 0
+≈ − 0.264 < 0
+≈ 0.186 ∈ [0,1]
+S = {B, D} - trusted pages
+- trusted page
+- trusted page
+- closely to 0 - not a spam
+- closely to 0 - not a spam
+DataLab
+HITS Algorithm
+Yakupov Azat 85
+HITS - hyperlink- induced topic search (Hubs and Authorities )
+Certain pages are valuable because they provide information about
+a topic. These pages are called authorities.
+Other pages are valuable not because they provide information
+about any topic, but because they tell you where to go to find out
+about that topic. These pages are called hubs.
+List of
+Courses
+Hub page
+finding a
+special IT course
+RDBMS
+Python
+noSQL
+Authority page
+Authority page
+Authority page
+DataLab
+HITS Algorithm
+Yakupov Azat 86
+HITS - hyperlink- induced topic search (Hubs and Authorities )
+a page is a good hub if it links
+to good authorities, and a
+page is a good authority if it
+is linked to by good hubs
+“
+”
+DataLab
+HITS Algorithm
+Yakupov Azat 87
+Web- hubbiness h site authority a
+A B
+C D
+Link matrix L, Lij = {
+1 , ∃ i → j
+0
+Transpose matrix LT
+, LT
+ij = {
+1 , ∃ j → i
+0
+L =
+0 1 0 0
+0 0 0 0
+0 1 0 1
+1 0 0 0
+A B C D
+D
+A
+B
+C
+LT =
+0 0 0 1
+1 0 1 0
+0 0 0 0
+0 0 1 0
+A B C D
+D
+A
+B
+C
+DataLab
+HITS Algorithm
+Yakupov Azat 88
+A B
+C D
+E
+L =
+0 1 1 1 0
+1 0 0 1 0
+0 0 0 0 1
+0 1 1 0 0
+0 0 0 0 0
+A B C D
+D
+A
+B
+C
+E
+E
+LT =
+0 1 0 0 0
+1 0 0 1 0
+1 0 0 1 0
+1 1 0 0 0
+0 0 1 0 0
+DataLab
+HITS Algorithm
+Yakupov Azat 89
+h = λLa
+a = μLTh
+1
+1
+1
+1
+1
+1st iteration
+h
+1
+2
+2
+2
+1
+LTh
+1/2
+1
+1
+1
+1/2
+a
+μ = 1/2
+3
+3/2
+1/2
+2
+0
+La
+1
+1/2
+1/6
+2/3
+0
+h
+1/2
+5/3
+5/3
+3/2
+1/6
+LTh
+3/10
+1
+1
+9/10
+1/10
+a
+29/10
+6/5
+1/10
+2
+0
+La
+2nd iteration
+1
+12/29
+1/29
+20/29
+0
+h
+3rd
+initial vector
+λ - is an unknown constant representing the scaling factor needed
+μ - is an another scaling constant
+λ = 1/3 μ = 3/5 λ = 10/29
+- maximum number, need to make a scaling
+DataLab
+HITS Algorithm
+Yakupov Azat 90
+h =
+1
+0.3583
+0
+0.7165
+0
+a =
+0.2087
+1
+1
+0.7913
+0
+D
+A
+B
+C
+E
+D
+A
+B
+C
+E
+A B
+C D
+E
+not a Hub
+a Hub
+for E only
+a greatest
+Hub
+a greatest
+Authority
+a greatest
+Authority
+not an Authority
+DataLab
+HITS Algorithm
+Yakupov Azat 91
+h = λμLLT h = λLa h
+a = μLTh a = λμLTLa
+LLT =
+3 1 0 2 0
+1 2 0 0 0
+0 0 1 0 0
+2 0 0 2 0
+0 0 0 0 0
+va = 3a + b + 2d
+vb = a + 2b
+vc = c
+vd = 2a + 2d
+ve = 0
+v = 1/(λμ)
+DataLab
+Other Algorithms
+Yakupov Azat 92
+Block Rank
+Host Rank
+SALSA (Stochastic Approach to Link Structure Analysis)
+Bad Rank
+Traffic Rank
+DataLab
+Yakupov Azat 93
+Thanks!
+DataLab
